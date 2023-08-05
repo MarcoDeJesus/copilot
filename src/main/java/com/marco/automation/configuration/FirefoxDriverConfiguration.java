@@ -9,17 +9,18 @@ import org.openqa.selenium.firefox.ProfilesIni;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class FirefoxConfiguration{
+public class FirefoxDriverConfiguration implements WebDriverConfiguration {
 
     private static final String SRC_MAIN_RESOURCES_WEBDRIVER_GECKODRIVER = "src/main/resources/webdriver/geckodriver";
     private static final String WEBDRIVER_GECKO_DRIVER = "webdriver.gecko.driver";
 
-    public static WebDriver getDriver() {
+    @Override
+    public WebDriver getDriver() {
         log.info("Setting up Firefox driver");
         System.setProperty(WEBDRIVER_GECKO_DRIVER, SRC_MAIN_RESOURCES_WEBDRIVER_GECKODRIVER);
 
         ProfilesIni profile = new ProfilesIni();
-        
+
         FirefoxProfile firefoxProfile = profile.getProfile("default");
         firefoxProfile.setPreference("browser.active_color", "#EE0000");
 
@@ -30,5 +31,5 @@ public class FirefoxConfiguration{
         log.info("Firefox driver setup completed");
         return new FirefoxDriver(firefoxOptions);
     }
-    
+
 }

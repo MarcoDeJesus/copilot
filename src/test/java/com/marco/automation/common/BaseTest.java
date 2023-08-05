@@ -5,23 +5,19 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import com.marco.automation.configuration.WebDriverManager;
+import com.marco.automation.configuration.ChromeDriverconfiguration;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 public class BaseTest {
 
     protected WebDriver driver;
-    
+
     @BeforeSuite
-    public void beforeSuite(){
-        log.info("Initializing driver");
-        this.driver = WebDriverManager.getDriver();
+    public void beforeSuite() {
+        this.driver = WebDriverManager.getDriver(new ChromeDriverconfiguration());
     }
 
     @AfterSuite
-    public void afterSuite(){
-        log.info("Closing driver");
+    public void afterSuite() {
         WebDriverManager.quitDriver();
     }
 }

@@ -1,35 +1,39 @@
 package com.marco.automation.configuration;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class WebDriverManager {
-
-    private static final String SRC_MAIN_RESOURCES_WEBDRIVER_CHROMEDRIVER = "src/main/resources/webdriver/chromedriver";
-    private static final String WEBDRIVER_CHROME_DRIVER = "webdriver.chrome.driver";
     private static ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<WebDriver>();
+    private static WebDriverConfiguration currentWebDriverConfiguration;
 
-    public static WebDriver getDriver() {
-        log.info("Setting up Chrome driver");  
+    public static WebDriver getDriver(WebDriverConfiguration webDriverConfiguration) {
+        currentWebDriverConfiguration = webDriverConfiguration;
 
+        setWebDriverToCurrentThreadIfNull();
+
+        log.info("Getting driver from current thread: " + webDriverThreadLocal.get());
+        return webDriverThreadLocal.get();
+    }
+
+    private static void setWebDriverToCurrentThreadIfNull() {
         if (webDriverThreadLocal.get() == null) {
 
-            System.setProperty(WEBDRIVER_CHROME_DRIVER, SRC_MAIN_RESOURCES_WEBDRIVER_CHROMEDRIVER);
-            
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("incognito");
-            
-            log.info("Chrome driver setup completed");
-            WebDriver driver = new ChromeDriver(chromeOptions);
+            WebDriver driver = getDriverInstance();
 
+            log.info("Setting up driver to current thread.");
             webDriverThreadLocal.set(driver);
         }
+    }
 
-        return webDriverThreadLocal.get();
+    private static WebDriver getDriverInstance() {
+        if (!(currentWebDriverConfiguration instanceof WebDriverConfiguration)) {
+            log.error("Invalid WebDriverConfiguration: " + currentWebDriverConfiguration);
+            throw new IllegalArgumentException("Invalid WebDriverConfiguration: " + currentWebDriverConfiguration);
+        }
+
+        return currentWebDriverConfiguration.getDriver();
     }
 
     public static void quitDriver() {
@@ -37,5 +41,4 @@ public class WebDriverManager {
         webDriverThreadLocal.get().quit();
         webDriverThreadLocal.remove();
     }
-    
 }
