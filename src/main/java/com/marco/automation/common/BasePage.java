@@ -3,6 +3,7 @@ package com.marco.automation.common;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.marco.automation.configuration.WebDriverManager;
 import com.marco.automation.configuration.DriverConfiguration;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,14 +31,14 @@ public class BasePage {
         log.info("Driver setup completed");
     }
 
-    protected static WebDriver getDriverInstance(DriverConfiguration driverConfiguration) {
+    static WebDriver getDriverInstance() {
 
-        if (!(driverConfiguration instanceof DriverConfiguration)) {
+/*         if (!(driverConfiguration instanceof DriverConfiguration)) {
             log.error("Invalid DriverConfiguration: " + driverConfiguration);
             throw new IllegalArgumentException("Invalid DriverConfiguration: " + driverConfiguration);
-        }
+        } */
 
-        return driverConfiguration.getDriver();
+        return WebDriverManager.getDriver();
     }
 
 }

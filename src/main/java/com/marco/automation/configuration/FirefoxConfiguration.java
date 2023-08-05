@@ -9,13 +9,12 @@ import org.openqa.selenium.firefox.ProfilesIni;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class FirefoxConfiguration implements DriverConfiguration{
+public class FirefoxConfiguration{
 
     private static final String SRC_MAIN_RESOURCES_WEBDRIVER_GECKODRIVER = "src/main/resources/webdriver/geckodriver";
     private static final String WEBDRIVER_GECKO_DRIVER = "webdriver.gecko.driver";
 
-    @Override
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         log.info("Setting up Firefox driver");
         System.setProperty(WEBDRIVER_GECKO_DRIVER, SRC_MAIN_RESOURCES_WEBDRIVER_GECKODRIVER);
 
