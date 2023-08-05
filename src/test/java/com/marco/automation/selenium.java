@@ -2,23 +2,19 @@ package com.marco.automation;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 public class selenium {
-    
+
     @Test
     public void test() {
-                // Set the path to the geckodriver executable
-        System.setProperty("webdriver.gecko.driver", "src/main/resources/webdriver/geckodriver");
-
-        WebDriver driver = new FirefoxDriver();
-        driver.get("https://www.saucedemo.com/");  
+        WebDriver driver = getDriver(new ChromeConfiguration());
+        driver.get("https://www.saucedemo.com/");
 
         WebElement username = driver.findElement(By.id("user-name"));
         WebElement password = driver.findElement(By.id("password"));
@@ -30,12 +26,21 @@ public class selenium {
 
         // Wait for the page to load and validate the title
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.titleIs("Swag Labs")); 
+        wait.until(ExpectedConditions.titleIs("Swag Labs"));
 
-        assertEquals("Swag Labs", driver.findElement(By.className("app_logo")).getText());
+        // assertion with testng
+        assertEquals("Swag Labs", driver.getTitle());
 
         // Close the browser
         driver.quit();
     }
-    
+
+    private WebDriver getDriver(DriverConfiguration driverConfiguration) {
+
+        if (!(driverConfiguration instanceof DriverConfiguration)) {
+            throw new IllegalArgumentException("Invalid DriverConfiguration: " + driverConfiguration);
+        }
+
+        return driverConfiguration.getDriver();
+    }
 }
