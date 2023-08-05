@@ -1,5 +1,7 @@
 package com.marco.automation;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +30,9 @@ public class selenium {
 
         // Wait for the page to load and validate the title
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.titleIs("Swag Las")); 
+        wait.until(ExpectedConditions.titleIs("Swag Labs")); 
+
+        assertEquals("Swag Labs", driver.findElement(By.className("app_logo")).getText());
 
         // Close the browser
         driver.quit();

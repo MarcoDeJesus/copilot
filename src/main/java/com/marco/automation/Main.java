@@ -1,12 +1,5 @@
 package com.marco.automation;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -16,6 +9,17 @@ public class Main {
         
         // Explain how to implement a test framework with testng and selenium and allure and maven and jenkins and docker and kubernetes and selenium grid and selenium hub and
         // selenium node and selenium chrome and selenium firefox and selenium ie and selenium edge and selenium safari and selenium opera and selenium headless and selenium
+        // remote and selenium local and selenium grid and selenium hub and selenium node and selenium chrome and selenium firefox and selenium ie and selenium edge and selenium
+        // safari and selenium opera and selenium headless and selenium remote and selenium local and selenium grid and selenium hub and selenium node and selenium chrome and
+        // selenium firefox and selenium ie and selenium edge and selenium safari and selenium opera and selenium headless and selenium remote and selenium local and selenium grid
+        // and selenium hub and selenium node and selenium chrome and selenium firefox and selenium ie and selenium edge and selenium safari and selenium opera and selenium
+        // headless and selenium remote and selenium local and selenium grid and selenium hub and selenium node and selenium chrome and selenium firefox and selenium ie and
+        // selenium edge and selenium safari and selenium opera and selenium headless and selenium remote and selenium local and selenium grid and selenium hub and selenium node
+        // and selenium chrome and selenium firefox and selenium ie and selenium edge and selenium safari and selenium opera and selenium headless and selenium remote and
+        // selenium local and selenium grid and selenium hub and selenium node and selenium chrome and selenium firefox and selenium ie and selenium edge and selenium safari
+        // and selenium opera and selenium headless and selenium remote and selenium local and selenium grid and selenium hub and selenium node and selenium chrome and selenium
+        // firefox and selenium ie and selenium edge and selenium safari and selenium opera and selenium headless and selenium remote and selenium local and selenium grid and
+        // selenium hub and selenium node and selenium chrome and selenium firefox and selenium ie and selenium edge and selenium safari and selenium opera and selenium
         
 
     }
