@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 
-public class selenium extends BaseTest{
+public class LoginTest extends BaseTest{
 
     private LoginPage loginPage;
 

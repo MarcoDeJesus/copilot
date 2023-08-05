@@ -11,20 +11,13 @@ public class BasePage {
     public BasePage(WebDriver driver, String baseUrl){
         this.driver = driver;
         this.baseUrl = baseUrl;
-        this.driver.get(baseUrl);
         PageFactory.initElements(driver, this);
+        createDriverInstance();
     }
     
-    public WebDriver createDriverInstance(){
-        driver = getDriver(new ChromeConfiguration());
-        driver.manage().window().maximize();
-
-        return driver;
-    }
-
-    public void close(){
-        driver.close();
-        driver.quit();
+    public void createDriverInstance(){
+        this.driver.manage().window().maximize();
+        this.driver.get(baseUrl);
     }
 
     protected static WebDriver getDriver(DriverConfiguration driverConfiguration) {
