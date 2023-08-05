@@ -1,7 +1,9 @@
-package com.marco.automation;
+package com.marco.automation.common;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+
+import com.marco.automation.configuration.DriverConfiguration;
 
 public class BasePage {
 

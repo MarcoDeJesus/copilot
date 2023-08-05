@@ -2,6 +2,10 @@ package com.marco.automation;
 
 import org.junit.Assert;
 import org.testng.annotations.Test;
+
+import com.marco.automation.common.BaseTest;
+import com.marco.automation.pageobjects.LoginPage;
+
 import org.testng.annotations.BeforeTest;
 
 public class LoginTest extends BaseTest{

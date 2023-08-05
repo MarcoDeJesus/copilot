@@ -1,4 +1,4 @@
-package com.marco.automation;
+package com.marco.automation.configuration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
