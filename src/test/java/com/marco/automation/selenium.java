@@ -1,32 +1,25 @@
 package com.marco.automation;
 
-//import static org.junit.Assert.assertEquals;
-
 import org.junit.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
 
-public class selenium {
-    static LoginPage loginPage;
+public class selenium extends BaseTest{
 
-    @BeforeSuite
-    public static void beforeSuite(){
-        loginPage = new LoginPage();
-    }
+    private LoginPage loginPage;
 
-    @AfterSuite
-    public static void afterSuite(){
-        loginPage.close();
+    @BeforeTest
+    public void initializeSauceLabPage(){
+        this.loginPage = new LoginPage(driver);
     }
 
     @Test
     public void test() {
         String expected = "Swag Labs";
-
+        
+        loginPage.login("standard_user", "secret_sauce");
         String actual = loginPage.getPageTitle();
 
         Assert.assertEquals("The page title is incorrect.", expected, actual);
     }
-
 }

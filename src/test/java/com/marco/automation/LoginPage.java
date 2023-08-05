@@ -1,48 +1,37 @@
 package com.marco.automation;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class LoginPage {
+public class LoginPage extends BasePage{
 
-    WebDriver driver;
+    @FindBy(how = How.ID, using = "user-name")
+    private WebElement usernameField;
+
+    @FindBy(how = How.ID, using = "password")
+    private WebElement passwordField;
+
+    @FindBy(how = How.ID, using = "login-button")
+    private WebElement loginButton;
+
+    public LoginPage(WebDriver driver){
+        super(driver, "https://www.saucedemo.com/");
+    }
+
+    public void login(String username, String password){
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
+        loginButton.click();
+    }
 
     public String getPageTitle(){
-
-        driver = getDriver(new ChromeConfiguration());
-        driver.manage().window().maximize();
-
-        driver.get("https://www.saucedemo.com/");
-
-        WebElement username = driver.findElement(By.id("user-name"));
-        WebElement password = driver.findElement(By.id("password"));
-        WebElement loginButton = driver.findElement(By.id("login-button"));
-
-        username.sendKeys("standard_user");
-        password.sendKeys("secret_sauce");
-        loginButton.click();
-
-        // Wait for the page to load and validate the title
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.titleIs("Swag Labs"));
 
         return driver.getTitle();
-    }
-
-    public void close(){
-        driver.close();
-        driver.quit();
-    }
-    
-    private WebDriver getDriver(DriverConfiguration driverConfiguration) {
-
-        if (!(driverConfiguration instanceof DriverConfiguration)) {
-            throw new IllegalArgumentException("Invalid DriverConfiguration: " + driverConfiguration);
-        }
-
-        return driverConfiguration.getDriver();
     }
 }
