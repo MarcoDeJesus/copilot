@@ -14,15 +14,15 @@ public class BasePage {
         this.driver = driver;
         this.baseUrl = baseUrl;
         PageFactory.initElements(driver, this);
-        createDriverInstance();
+        driverSetup();
     }
     
-    public void createDriverInstance(){
+    public void driverSetup(){
         this.driver.manage().window().maximize();
         this.driver.get(baseUrl);
     }
 
-    protected static WebDriver getDriver(DriverConfiguration driverConfiguration) {
+    protected static WebDriver getDriverInstance(DriverConfiguration driverConfiguration) {
 
         if (!(driverConfiguration instanceof DriverConfiguration)) {
             throw new IllegalArgumentException("Invalid DriverConfiguration: " + driverConfiguration);

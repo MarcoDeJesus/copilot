@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void test() {
+    public void GivenAValidUserNameAndPassword_WhenLogin_HomePageIsLoaded() {
         String expected = "Swag Labs";
         
         loginPage.login("standard_user", "secret_sauce");

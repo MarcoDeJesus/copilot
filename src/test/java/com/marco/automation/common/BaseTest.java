@@ -12,7 +12,7 @@ public class BaseTest {
     
     @BeforeSuite
     public void beforeSuite(){
-        this.driver = BasePage.getDriver(new ChromeConfiguration());
+        this.driver = BasePage.getDriverInstance(new ChromeConfiguration());
     }
 
     @AfterSuite
