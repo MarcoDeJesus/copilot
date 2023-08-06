@@ -18,7 +18,7 @@ public class ChromeDriverconfiguration implements WebDriverConfiguration {
         System.setProperty(WEBDRIVER_CHROME_DRIVER, SRC_MAIN_RESOURCES_WEBDRIVER_CHROMEDRIVER);
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setHeadless(false);
+        //chromeOptions.addArguments("headless");
 
         log.info("Chrome driver setup completed");
         return new ChromeDriver(chromeOptions);

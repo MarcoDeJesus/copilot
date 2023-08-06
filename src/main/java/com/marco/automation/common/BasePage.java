@@ -2,17 +2,7 @@ package com.marco.automation.common;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
-import java.util.function.Function;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

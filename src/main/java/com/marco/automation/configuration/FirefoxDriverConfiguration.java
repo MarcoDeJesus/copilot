@@ -25,7 +25,7 @@ public class FirefoxDriverConfiguration implements WebDriverConfiguration {
         firefoxProfile.setPreference("browser.active_color", "#EE0000");
 
         FirefoxOptions firefoxOptions = new FirefoxOptions();
-        firefoxOptions.setHeadless(false);
+        firefoxOptions.addArguments("--headless");
         firefoxOptions.setProfile(firefoxProfile);
 
         log.info("Firefox driver setup completed");
