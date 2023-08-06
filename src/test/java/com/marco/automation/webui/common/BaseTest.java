@@ -1,4 +1,4 @@
-package com.marco.automation.common;
+package com.marco.automation.webui.common;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
