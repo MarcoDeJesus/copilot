@@ -1,14 +1,16 @@
 package com.marco.automation.webui;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.marco.automation.pageobjects.HomePage;
 import com.marco.automation.pageobjects.LoginPage;
 import com.marco.automation.webui.common.BaseTest;
 
+@Listeners(com.marco.automation.utils.listeners.TestReport.class)
 public class LoginTest extends BaseTest{
 
     private LoginPage loginPage;
@@ -31,7 +33,7 @@ public class LoginTest extends BaseTest{
         homePage = loginPage.login("standard_user", "secret_sauce");
         String actual = homePage.getPageTitle();
 
-        Assert.assertEquals("The page title is incorrect.", expected, actual);
+        Assert.assertEquals(actual, expected,  "The page title is incorrect.");
     }
 
     @Test
@@ -41,7 +43,7 @@ public class LoginTest extends BaseTest{
         homePage = loginPage.login("standard_user", "secret_sauce");
         String actual = homePage.getPageTitle();
 
-        Assert.assertEquals("The page title is incorrect.", expected, actual);
+        Assert.assertEquals(actual, expected,  "The page title is incorrect.");
     }
 }
  

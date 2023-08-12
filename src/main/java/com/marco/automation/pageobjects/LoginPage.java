@@ -32,6 +32,7 @@ public class LoginPage extends BasePage{
     public HomePage login(String username, String password){
         log.info("Logging in with username: " + username + " and password: " + password);
 
+        //TODO: Move the wait to a common class
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(usernameField));
 

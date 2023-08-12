@@ -35,6 +35,7 @@ public class HomePage extends BasePage{
         public String getPageTitle(){
         log.info("Getting page title");
 
+        //TODO: Move the wait to a common class
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
         .withTimeout(Duration.ofSeconds(30))
         .pollingEvery(Duration.ofSeconds(5))
@@ -54,6 +55,7 @@ public class HomePage extends BasePage{
         log.info("Logging out");
         menuButton.click();
      
+        //TODO: Move the wait to a common class
        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(logoutButton));
 

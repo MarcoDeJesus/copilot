@@ -21,6 +21,7 @@ public class BasePage {
     private void driverSetup() {
         log.info("Setting up driver");
 
+        //TODO: Research on have implicit wait.
         PageFactory.initElements(driver, this);
         this.driver.manage().window().maximize();
         this.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
