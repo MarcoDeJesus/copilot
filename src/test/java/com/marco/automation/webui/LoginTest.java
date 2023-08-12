@@ -1,8 +1,8 @@
 package com.marco.automation.webui;
 
 import org.junit.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.marco.automation.pageobjects.HomePage;
@@ -14,12 +14,12 @@ public class LoginTest extends BaseTest{
     private LoginPage loginPage;
     private HomePage homePage;
 
-    @BeforeTest
+    @BeforeMethod
     public void initializeSauceLabPage(){
         this.loginPage = new LoginPage(driver);
     }
 
-    @AfterTest
+    @AfterMethod
     public void afterTest() {
         this.loginPage = this.homePage.logout();
     }

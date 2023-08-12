@@ -10,8 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.marco.automation.common.BasePage;
 
@@ -26,8 +28,8 @@ public class HomePage extends BasePage{
     @FindBy(how = How.ID, using = "logout_sidebar_link")
     private WebElement logoutButton;
 
-    public HomePage(WebDriver driver, String baseUrl) {
-        super(driver, baseUrl);
+    public HomePage(WebDriver driver) {
+        super(driver, driver.getCurrentUrl());
         log.info("Initializing HomePage");
     }
         public String getPageTitle(){
@@ -52,6 +54,9 @@ public class HomePage extends BasePage{
         log.info("Logging out");
         menuButton.click();
      
+       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(logoutButton));
+
         Actions action = new Actions(driver);
         action.moveToElement(logoutButton).click().perform();
 
