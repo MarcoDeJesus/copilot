@@ -1,4 +1,4 @@
-package com.marco.htmlmodel.model.interfaces.factory;
+package com.marco.htmlmodel.model.interfaces.elementfactory;
 
 import com.marco.htmlmodel.model.interfaces.element.HtmlElement;
 

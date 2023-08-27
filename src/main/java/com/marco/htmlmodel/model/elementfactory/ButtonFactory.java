@@ -1,7 +1,7 @@
-package com.marco.htmlmodel.model.factory;
+package com.marco.htmlmodel.model.elementfactory;
 
 import com.marco.htmlmodel.model.element.Button;
-import com.marco.htmlmodel.model.interfaces.factory.HtmlElementFactory;
+import com.marco.htmlmodel.model.interfaces.elementfactory.HtmlElementFactory;
 
 public class ButtonFactory implements HtmlElementFactory<Button>{
     

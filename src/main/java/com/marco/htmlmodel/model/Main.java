@@ -2,10 +2,10 @@ package com.marco.htmlmodel.model;
 
 import com.marco.htmlmodel.model.element.Button;
 import com.marco.htmlmodel.model.element.Label;
-import com.marco.htmlmodel.model.factory.ButtonFactory;
-import com.marco.htmlmodel.model.factory.LabelFactory;
+import com.marco.htmlmodel.model.elementfactory.ButtonFactory;
+import com.marco.htmlmodel.model.elementfactory.LabelFactory;
 import com.marco.htmlmodel.model.interfaces.element.HtmlElement;
-import com.marco.htmlmodel.model.interfaces.factory.HtmlElementFactory;
+import com.marco.htmlmodel.model.interfaces.elementfactory.HtmlElementFactory;
 
 public class Main {
     public static void main(String[] args) {
