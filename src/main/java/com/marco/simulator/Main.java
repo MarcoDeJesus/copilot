@@ -1,27 +1,34 @@
-package com.marco.htmlmodel.model;
+package com.marco.simulator;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.marco.htmlmodel.model.element.Button;
 import com.marco.htmlmodel.model.element.Label;
+import com.marco.htmlmodel.model.element.Window;
 import com.marco.htmlmodel.model.elementfactory.ButtonFactory;
 import com.marco.htmlmodel.model.elementfactory.LabelFactory;
+import com.marco.htmlmodel.model.elementfactory.WindowFactory;
 import com.marco.htmlmodel.model.interfaces.element.HtmlElement;
 import com.marco.htmlmodel.model.interfaces.elementfactory.HtmlElementFactory;
 
 public class Main {
     public static void main(String[] args) {
+
+        HtmlElementFactory<Window> windowFactory = new WindowFactory();
         HtmlElementFactory<Label> labelFactory = new LabelFactory();
         HtmlElementFactory<Button> buttonFactory = new ButtonFactory();
 
-        HtmlElement usernameHtml = labelFactory.addContentBetweenTags("username");
-        HtmlElement passwordHtml = labelFactory.addContentBetweenTags("password");
-        HtmlElement buttonHtml = buttonFactory.addContentBetweenTags("login");
+        HtmlElement window = windowFactory.addContentBetweenTags("https://www.saucedemo.com/");
 
-        displayHtmlElement(usernameHtml);
-        displayHtmlElement(passwordHtml);
-        displayHtmlElement(buttonHtml);
+        //displayHtmlElement(window);
+
+        HtmlElement usernameHtml = labelFactory.createHtmlElement("cssSelector", "#user-name");
+        HtmlElement passwordHtml = labelFactory.createHtmlElement("xpath", "//*[@id=\"password\"]");
+        HtmlElement buttonHtml = buttonFactory.createHtmlElement("xpaht", "//*[@id=\"login-button\"]");
     }
 
-     public static void displayHtmlElement(HtmlElement htmlElement) {
+    public static void displayHtmlElement(HtmlElement htmlElement) {
         System.out.println(htmlElement.getElementType() + ":");
         System.out.println("<" + htmlElement.getTag() + ">" + htmlElement.getContent() + "</" + htmlElement.getTag() + ">");
         if (htmlElement instanceof Button) {
@@ -30,5 +37,4 @@ public class Main {
         }
         System.out.println();
     }
-
 }

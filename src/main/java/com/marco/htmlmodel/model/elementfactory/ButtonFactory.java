@@ -6,7 +6,12 @@ import com.marco.htmlmodel.model.interfaces.elementfactory.HtmlElementFactory;
 public class ButtonFactory implements HtmlElementFactory<Button>{
     
     @Override
-    public Button createHtmlElement(String content){
+    public Button addContentBetweenTags(String content){
         return new Button(content);
+    }
+
+    @Override
+    public Button createHtmlElement(String locatorType, String locator) {
+        return null;
     }
 }
