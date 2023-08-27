@@ -1,6 +1,6 @@
 package com.marco.htmlmodel.factory;
 
-public class TextField extends Element implements ITextField{
+public class TextField extends Element<TextElement> implements ITextField{
 
     public TextField(){
 
