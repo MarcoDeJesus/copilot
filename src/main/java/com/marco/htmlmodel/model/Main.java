@@ -16,34 +16,19 @@ public class Main {
         HtmlElement passwordHtml = labelFactory.createHtmlElement("password");
         HtmlElement buttonHtml = buttonFactory.createHtmlElement("login");
 
-        if(usernameHtml instanceof Label){
-            Label usernameLabel = (Label) usernameHtml;
-
-            System.out.println(usernameLabel.getElementType() + ":");
-            System.out.println("<" + usernameHtml.getTag() + ">"
-                + usernameLabel.getContent() 
-                + "</" + usernameHtml.getTag() + ">");
-            System.out.println();
-        }
-
-        if(passwordHtml instanceof Label){
-            Label passwordLabel = (Label) passwordHtml;
-
-            System.out.println(passwordLabel.getElementType() + ":");
-            System.out.println("<" + passwordHtml.getTag() + ">"
-                + passwordLabel.getContent() 
-                + "</" + passwordHtml.getTag() + ">");
-            System.out.println();
-        }
-
-        if(buttonHtml instanceof Button){
-            Button loginButton = (Button) buttonHtml;
-
-            System.out.println(loginButton.getElementType() + ":");
-            System.out.println("<" + buttonHtml.getTag() + ">"
-                + loginButton.getContent() 
-                + "</" + buttonHtml.getTag() + ">");
-            System.out.println();
-        }
+        displayHtmlElement(usernameHtml);
+        displayHtmlElement(passwordHtml);
+        displayHtmlElement(buttonHtml);
     }
+
+     public static void displayHtmlElement(HtmlElement htmlElement) {
+        System.out.println(htmlElement.getElementType() + ":");
+        System.out.println("<" + htmlElement.getTag() + ">" + htmlElement.getContent() + "</" + htmlElement.getTag() + ">");
+        if (htmlElement instanceof Button) {
+            Button button = (Button) htmlElement;
+            button.click();
+        }
+        System.out.println();
+    }
+
 }

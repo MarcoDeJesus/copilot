@@ -26,5 +26,15 @@ public class Button implements HtmlElement, TextElement, InputElement{
     public String getContent() {
         return content;
     }
+
+    @Override
+    public void inputText(){
+        System.out.println("sending text.");
+    }
+
+    @Override
+    public void click() {
+        System.out.println("Clicking...");
+    }
     
 }
