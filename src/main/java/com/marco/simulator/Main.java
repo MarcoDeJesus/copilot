@@ -1,25 +1,23 @@
 package com.marco.simulator;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import com.marco.htmlmodel.model.element.Button;
 import com.marco.htmlmodel.model.element.Label;
 import com.marco.htmlmodel.model.element.Window;
 import com.marco.htmlmodel.model.elementfactory.ButtonFactory;
 import com.marco.htmlmodel.model.elementfactory.LabelFactory;
-import com.marco.htmlmodel.model.elementfactory.WindowFactory;
 import com.marco.htmlmodel.model.interfaces.element.HtmlElement;
 import com.marco.htmlmodel.model.interfaces.elementfactory.HtmlElementFactory;
+import com.marco.htmlmodel.model.interfaces.elementfactory.BrowserWindowFactory;
+import com.marco.htmlmodel.model.elementfactory.BrowserFactory;
 
 public class Main {
     public static void main(String[] args) {
 
-        HtmlElementFactory<Window> windowFactory = new WindowFactory();
+        BrowserWindowFactory<Window> windowFactory = new BrowserFactory();
         HtmlElementFactory<Label> labelFactory = new LabelFactory();
         HtmlElementFactory<Button> buttonFactory = new ButtonFactory();
 
-        HtmlElement window = windowFactory.addContentBetweenTags("https://www.saucedemo.com/");
+        Window window = windowFactory.createBrowserWindow("https://www.saucedemo.com/");
 
         //displayHtmlElement(window);
 
